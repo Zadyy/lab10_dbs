@@ -405,8 +405,13 @@ set autocommit=0;
 select * from workers;
 update workers set salary = salary * 0.625;
 
-/* System error 1 */
 
+/* Logical error 2 */
+start transaction;
+select * from users where jdaosfvnjcsovns;
+
+
+/* System error 1 */
 /* Workbench query */
 commit;
 set transaction isolation level serializable;
@@ -419,10 +424,7 @@ select * from user_log;
 /* CMD query */
 set transaction isolation level serializable; set autocommit = 0; start transaction; update users set user_name = 'Bataa' where user_id = 'U0001'; select * from users;
 
-
-
 /* System error 2 */
-
 /* Workbench query */
 commit;
 set transaction isolation level serializable;
